@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* Dark mode driven by a `.dark` class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+
+  --color-warm-ivory: #FBF7EE;
+  --color-rice-paper: #F6EEDC;
+  --color-heritage-green: #1E4B43;
+  --color-heritage-dark: #163D37;
+  --color-antique-gold: #D9B76A;
+  --color-sky-mist: #BFE3EA;
+  --color-horizon-blue: #9FCED8;
+  --color-mountain-teal: #6E9FA1;
+  --color-lotus-pink: #E8B7B2;
+  --color-mist-cloud: #E8DFCB;
+
+  --color-text-body: #3F5550;
+  --color-text-secondary: #6E7E79;
+  --color-text-muted: #8C9692;
+
+  --color-surface: #FBF7EE;
+  --color-surface-muted: #F6EEDC;
+  --color-surface-sunken: #E8DFCB;
+  --color-surface-hover: #E8DFCB;
+  --color-shell: rgba(251, 247, 238, 0.85);
+  --color-line: rgba(30, 75, 67, 0.12);
+
+  --color-ink: #163D37;
+  --color-ink-soft: #3F5550;
+  --color-ink-faint: #6E7E79;
+
+  --radius-card: 1.5rem;
+  --radius-inner: 1rem;
+  --radius-pill: 999px;
+}
+
+.dark {
+  --color-surface: #0b1a17;
+  --color-surface-muted: #122924;
+  --color-surface-sunken: #16332d;
+  --color-surface-hover: #1e453c;
+  --color-shell: rgba(11, 26, 23, 0.85);
+  --color-line: rgba(217, 183, 106, 0.2);
+
+  --color-ink: #FBF7EE;
+  --color-ink-soft: #d0deda;
+  --color-ink-faint: #98ada7;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    margin: 0;
+    cursor: url('./assets/cursor/turtle_cursor_48.png') 4 4, auto;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #3F5550;
+    background-color: #FBF7EE;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .dark body {
+    background-color: #0b1a17;
+    color: #FBF7EE;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  button,
+  a,
+  select,
+  summary,
+  label[for],
+  [role="button"],
+  [role="tab"],
+  .cursor-pointer {
+    cursor: url('./assets/cursor/turtle_cursor_48.png') 4 4, pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  /* Smooth scrollbar styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(217, 183, 106, 0.4) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(217, 183, 106, 0.5);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(217, 183, 106, 0.8);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* Glassmorphism utility aligned with Warm Ivory / Deep Heritage */
+.glass-panel {
+  background: rgba(251, 247, 238, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 75, 67, 0.12);
+}
+
+.dark .glass-panel {
+  background: rgba(11, 26, 23, 0.88);
+  border: 1px solid rgba(217, 183, 106, 0.2);
+}
+
+/* Traditional Vietnamese Motif background texture overlay */
+.vn-pattern-bg {
+  background-image: radial-gradient(rgba(30, 75, 67, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .vn-pattern-bg {
+  background-image: radial-gradient(rgba(217, 183, 106, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
